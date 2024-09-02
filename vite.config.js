@@ -16,7 +16,11 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         }),
     ],
-
+    resolve: {
+        alias: {
+          'vue': 'vue/dist/vue.esm-bundler.js'  // 这里指定 Vue 的解析路径
+        }
+      },
     css: {
         preprocessorOptions: {
             less: {
