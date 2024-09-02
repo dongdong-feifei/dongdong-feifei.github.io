@@ -7,7 +7,9 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: './',  // 设置为相对路径
     plugins: [
+        
         vue(),
         AutoImport({
             resolvers: [ElementPlusResolver()],
