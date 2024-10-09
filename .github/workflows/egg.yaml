@@ -17,13 +17,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14" # 指定Node.js版本
+          node-version: "18" # 指定Node.js版本
 
       - name: Install dependencies
         run: npm install
 
       - name: Build the project
         run: npm run build # 假设你有一个build命令
+
+      - name: Clean up repository
+        run: git clean -fdx
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "dongdongfeifei"
+          git config --global user.email "3135631305@qq.com"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
