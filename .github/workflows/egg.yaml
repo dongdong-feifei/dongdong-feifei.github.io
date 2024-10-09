@@ -2,14 +2,20 @@ name: github action 第一次学习
 
 on:
   push:
-    jobs:
-      vite build:
-        name: npm-build工作
-        run-on: ubuntu-latest
-        steps:
-          - name: 读取仓库内容
-            uses: actions/checkout@v4
-          - name: 安装依赖
-            uses: npm install
-          - name: 项目打包
-            uses: npm run build
+    branches:
+      - main # 指定要监听的分支
+
+jobs:
+  build: # 定义作业
+    name: npm-build工作
+    runs-on: ubuntu-latest # 注意这里是"runs-on"而不是"run-on"
+
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+
+      - name: 安装依赖
+        run: npm install # 使用"run"而不是"uses"
+
+      - name: 项目打包
+        run: npm run build # 同样使用"run"
