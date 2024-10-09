@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main # 指定要监听的分支
-
+permissons:
+  contents: write
 jobs:
   build:
     name: Build and Deploy
