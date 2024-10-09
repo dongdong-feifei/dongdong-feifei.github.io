@@ -1,4 +1,4 @@
-name: github action 第一次学习
+name: CI/CD to GitHub Pages
 
 on:
   push:
@@ -6,16 +6,29 @@ on:
       - ciTest # 指定要监听的分支
 
 jobs:
-  build: # 定义作业
-    name: npm-build工作
-    runs-on: ubuntu-latest # 注意这里是"runs-on"而不是"run-on"
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
 
     steps:
-      - name: 读取仓库内容
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: 安装依赖
-        run: npm install # 使用"run"而不是"uses"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # 指定Node.js版本
 
-      - name: 项目打包
-        run: npm run build # 同样使用"run"
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build # 假设你有一个build命令
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # 部署到gh-pages分支
+          folder: build # 你的构建产物所在的文件夹
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub自动提供的token
