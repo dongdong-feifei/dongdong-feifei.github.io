@@ -1,0 +1,15 @@
+name: github action 第一次学习
+
+on:
+  push:
+    jobs:
+      npm-build:
+        name: npm-build工作
+        run-on: ubuntu-latest
+        steps:
+          - name: 读取仓库内容
+            uses: actions/checkout@v4
+          - name: 安装依赖
+            uses: npm install
+          - name: 项目打包
+            uses: npm run build
