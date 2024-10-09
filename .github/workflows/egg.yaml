@@ -29,6 +29,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # 部署到gh-pages分支
-          folder: build # 你的构建产物所在的文件夹
+          folder: dist # 你的构建产物所在的文件夹
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub自动提供的token
