@@ -5,6 +5,9 @@ on:
     branches:
       - ciTest # 指定要监听的分支
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build and Deploy
