@@ -3,7 +3,7 @@ name: github action 第一次学习
 on:
   push:
     branches:
-      - main # 指定要监听的分支
+      - ciTest # 指定要监听的分支
 
 jobs:
   build: # 定义作业
