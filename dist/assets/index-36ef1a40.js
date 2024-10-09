@@ -1,1 +1,0 @@
-import{r,l as s,a as l,c,b as t,t as u}from"./index-ba734b54.js";const m={__name:"index",setup(p){let e=0;const a=r([]),n=()=>{a.value=[e],e++},o=s(()=>(console.log(123),a.value));return(i,_)=>(l(),c("div",null,[t("button",{onClick:n},"点击"),t("span",null,u(o.value),1)]))}};export{m as default};
