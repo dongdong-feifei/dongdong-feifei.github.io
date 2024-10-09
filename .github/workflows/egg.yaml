@@ -3,7 +3,7 @@ name: github action 第一次学习
 on:
   push:
     jobs:
-      npm-build:
+      vite build:
         name: npm-build工作
         run-on: ubuntu-latest
         steps:
