@@ -40,6 +40,11 @@ export default defineConfig({
         index: path.resolve(__dirname, "index.html"),
         404: path.resolve(__dirname, "404.html"),
       },
+      output: {
+        entryFileNames: "dist/assets/[name]-[hash].js", // JS 入口文件路径
+        chunkFileNames: "dist/assets/[name]-[hash].js", // 代码分块路径
+        assetFileNames: "dist/assets/[name]-[hash][extname]", // 其他静态资源路径
+      },
     },
   },
 });
